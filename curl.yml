@@ -1,0 +1,15 @@
+curl "https://www.dota2.com/datafeed/herolist?language=english" ^
+  -H "authority: www.dota2.com" ^
+  -H "accept: application/json, text/plain, */*" ^
+  -H "accept-language: en-GB,en-US;q=0.9,en;q=0.8" ^
+  -H "cookie: sessionid=1966e68e36fa58c660bac0db" ^
+  -H "if-modified-since: Tue, 15 Aug 2023 12:28:55 GMT" ^
+  -H "referer: https://www.dota2.com/heroes" ^
+  -H "sec-ch-ua: ^\^"Not/A)Brand^\^";v=^\^"99^\^", ^\^"Google Chrome^\^";v=^\^"115^\^", ^\^"Chromium^\^";v=^\^"115^\^"" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H "sec-ch-ua-platform: ^\^"Windows^\^"" ^
+  -H "sec-fetch-dest: empty" ^
+  -H "sec-fetch-mode: cors" ^
+  -H "sec-fetch-site: same-origin" ^
+  -H "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" ^
+  --compressed
