@@ -16,7 +16,7 @@ jobs:
           architecture: 'x64'
           cache: 'pip'
 
-      -name: Show current files
+      - name: Show current files
         run: |
           echo "$PWD"
           echo $(ls) 
