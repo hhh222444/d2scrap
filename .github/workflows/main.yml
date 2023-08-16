@@ -1,0 +1,42 @@
+name: Sync Data
+run-name: Sync Data 
+on: workflow_dispatch
+
+  # schedule:
+    # - cron: '19 17 * * *'  # @daily at 17:19 UTC
+
+jobs:
+  sync-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          architecture: 'x64'
+          cache: 'pip'
+
+      - name: Install dependencies with pip
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: |
+          python3 --version
+          python3 scrap_hero.py
+        # env:
+        #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
+      - name: Commit to the repo
+        run: |
+          git config --global user.name "Automated"
+          git config --global user.email "hhh222444@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "[Auto Commit] Latest data: ${timestamp}" || true
+          git push
