@@ -19,9 +19,9 @@ def fetch_hero(id):
     hero_url = "https://www.dota2.com/datafeed/herodata?language=english&hero_id=" + str(id)
     print("fetching hero " + str(id) + " from " + hero_url)
     hero_response = requests.get(hero_url).json()
-    hero_list = hero_response['result']['data']['heroes'][0]
+    hero_data = hero_response['result']['data']['heroes'][0]
     with open('heroes\hero_' + str(id) + '.json', 'w') as f:
-        json.dump(hero_list, f)
+        json.dump(hero_data, f)
 
 
 def fetch_heroes():
@@ -30,6 +30,16 @@ def fetch_heroes():
     for hero in hero_list:
         fetch_hero(hero['id'])
 
-fetch_hero_list()
-fetch_heroes()
+# fetch_hero_list()
+# fetch_heroes()
+
+
+def test_fetching(id):
+    hero_url = "https://www.dota2.com/datafeed/herodata?language=english&hero_id=" + str(id)
+    print("fetching hero " + str(id) + " from " + hero_url)
+    hero_response = requests.get(hero_url).json()
+    hero_data = hero_response['result']['data']['heroes'][0]
+    print(hero_data)
+
+test_fetching(80)
 
