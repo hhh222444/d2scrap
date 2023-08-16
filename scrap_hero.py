@@ -1,7 +1,7 @@
 import requests
 import json
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
+# from fake_useragent import UserAgent
 
 # ua = UserAgent()
 # headers = {'User-Agent': ua.chrome}
