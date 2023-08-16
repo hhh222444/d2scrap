@@ -40,7 +40,7 @@ def fetch_heroes():
         fetch_hero(hero['id'])
 
 fetch_hero_list()
-# fetch_heroes()
+fetch_heroes()
 
 
 # def test_fetching(id):
