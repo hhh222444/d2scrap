@@ -6,11 +6,18 @@ from bs4 import BeautifulSoup
 # ua = UserAgent()
 # headers = {'User-Agent': ua.chrome}
 hero_list_json_file = "hero_list.json"
+image_base_url = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/"
+
+def addingImageUrl(hero_list):
+    for hero in hero_list:
+        hero_name = hero['name'][len("npc_dota_hero_"):]
+        hero['image_url'] = image_base_url + hero_name + ".png"
 
 def fetch_hero_list():
     hero_list_url = "https://www.dota2.com/datafeed/herolist?language=english"
     hero_list_response = requests.get(hero_list_url).json()
     hero_list = hero_list_response['result']['data']['heroes']
+    addingImageUrl(hero_list)
     with open(hero_list_json_file, 'w') as f:
         json.dump(hero_list, f)
 
@@ -33,7 +40,7 @@ def fetch_heroes():
         fetch_hero(hero['id'])
 
 fetch_hero_list()
-fetch_heroes()
+# fetch_heroes()
 
 
 # def test_fetching(id):
