@@ -1,8 +1,9 @@
 name: Sync Data
 run-name: Sync Data 
-on:
-  schedule:
-    - cron: '19 17 * * *'  # @daily at 17:19 UTC
+on: workflow_dispatch
+
+  # schedule:
+    # - cron: '19 17 * * *'  # @daily at 17:19 UTC
 
 jobs:
   sync-data:
