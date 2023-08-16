@@ -13,23 +13,23 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-          architecture: 'x64'
-          cache: 'pip'
+          # architecture: 'x64'
+          # cache: 'pip'
 
       - name: Show current files
         run: |
           echo "$PWD"
           echo $(ls) 
 
-      - name: Install dependencies with pip
-        run: |
-          python3 -m pip install --upgrade pip setuptools wheel
-          pip install -r requirements.txt
+      # - name: Install dependencies with pip
+      #   run: |
+      #     python3 -m pip install --upgrade pip setuptools wheel
+      #     pip install -r requirements.txt
 
-      - name: Run script
-        run: |
-          python3 --version
-          python3 scrap_hero.py
+      # - name: Run script
+      #   run: |
+      #     python3 --version
+      #     python3 scrap_hero.py
         # env:
         #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
