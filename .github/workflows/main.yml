@@ -18,7 +18,6 @@ jobs:
 
       - name: Show current files
         run: |
-          echo "$PWD"
           echo $(ls) 
 
       # - name: Install dependencies with pip
