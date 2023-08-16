@@ -16,10 +16,13 @@ jobs:
           architecture: 'x64'
           cache: 'pip'
 
-      - name: Install dependencies with pip
+      -name: Show current files
         run: |
           echo "$PWD"
           echo $(ls) 
+
+      - name: Install dependencies with pip
+        run: |
           python3 -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
 
